@@ -3,16 +3,40 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>HKOSCon 2018</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-segment [(ngModel)]="mode">
+    <ion-segment-button value="d1">
+      Day 1 (16 Jun)
+    </ion-segment-button>
+    <ion-segment-button value="d2">
+      Day 2 (17 Jun)
+    </ion-segment-button>
+  </ion-segment>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <h4></h4>
+
+  <div *ngFor="let d of data">
+
+    <h4>{{d.time}}</h4>
+
+    <ion-list>
+      <ion-item *ngFor="let d of d.list">
+        <span ion-text text-wrap item-start color="light">{{d.code}}</span>
+        <span ion-text text-wrap>{{d.title}}</span>
+        <p *ngIf="d.author"></p>
+        <p *ngIf="d.author">{{d.author}}</p>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+  <ion-fab right bottom>
+    <button ion-fab><ion-icon name="refresh"></ion-icon></button>
+  </ion-fab>
+
 </ion-content>

@@ -1,3 +1,13 @@
-page-home {
+@import "../../theme/variables";
 
+page-home {
+  ion-list {
+    ion-item {
+      span[item-start] {
+        background: map_get($colors, primary);
+        border-radius: 50%;
+        padding: 1rem;
+      }
+    }
+  }
 }
